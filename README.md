@@ -1,2 +1,2 @@
 # WS_AliExpress
-University web scrapping porject
+University web scrapping project
