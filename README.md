@@ -249,9 +249,16 @@ The constructor arguments are:
 
 ### Running the file
 
-To run the file, write the command `venv\Product_scrapper.py` just as the following image. Note: You should be in the virtual environment.
+To run the file, write the command `venv\Product_scrapper.py` just as the following image, and press enter. Note: You should be in the virtual environment.
 
 ![Captura de pantalla (3443)](https://github.com/Areo-17/WS_MercadoLibre/assets/144394013/1ff7dfd8-348a-4750-a9de-68221ec64745)
+
+### Results
+
+Congrats! You have scrapped a product. An example of the result would be the following one:
+
+![WhatsApp Image 2024-02-27 at 9 10 36 AM](https://github.com/Areo-17/WS_MercadoLibre/assets/144394013/73caae3a-db9f-4726-8fc4-4a8e45f2595b)
+
 
 
 
