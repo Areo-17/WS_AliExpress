@@ -329,9 +329,13 @@ First, open the *"Docker Desktop"* app, continue without logging in with an acco
 When te Docker app has already initialized, open your Git Bash, navigate to the directory in which you cloned the repository, and go to the folder in which *"WS_deployment"* is. Once you are there, write the command `docker compose up`. The screen should look like this:
 ![Captura de pantalla (3450)](https://github.com/Areo-17/WS_MercadoLibre/assets/144394013/84b4cea3-ae3e-4307-8ed0-bbc977ff3362)
 
+Now, the docker is up!
 
-### Testing the app's APIs on Postman
-Now, the docker is up! 
+### Testing the app's APIs on Postman 
+
+Open Postman, click on the Workspace button that is on the left top of the window, create a workspace, select the POST mode on the created workspace, put the http link that docker gave you, in this case is `http://127.0.0.1:6000`, and add `/Scrapping`; the example look like this `http://127.0.0.1:6000/Scrapping`. After this, click in the *"Body"* button.
+
+![Captura de pantalla (3452)](https://github.com/Areo-17/WS_MercadoLibre/assets/144394013/e37bea00-b8af-4eb8-9b47-bc5017838a3e)
 
 
 
