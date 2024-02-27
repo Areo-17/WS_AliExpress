@@ -66,44 +66,69 @@ The first function will be the initialization of recurring variables.
 ![Captura de pantalla (3430)](https://github.com/Areo-17/WS_MercadoLibre/assets/144394013/41a9fe46-f354-4838-8587-0c45225677b4)
 
 `Class Scrapper`: declares a new class named Scrapper.
+
 `def __init__(self, URL: str, verbose: bool = False, daemon: bool = False)`: defines the constructor method using the __init__ special method, which is called whenever a new instance of the class is created.
+
 `self` refers to the current object instance. This method takes three parameters: 
 **URL**: A required string parameter representing the URL to be scraped.
 **verbose**: An optional boolean parameter (default: False), indicating whether verbose logging messages should be printed.
 **daemon**: An optional boolean parameter (default: False), determining whether the class should behave as a daemon (explained later).
+
 The triple-quoted strings (''') before the code block define the docstring, which provides a brief description of the class and its parameters. It improves code readability and understanding.
+
 `self.URL = URL`: Assigns the provided URL parameter to the instance attribute self.URL for storage within the object.
 This is repeated for `verbose` and `daemon`, creating instance attributes associated with the respective parameters' values.
-`self.__inform("Class initialized correctly...")`: This line calls a private method (`__inform`) within the class, potentially to print a message indicating successful class initialization. The double underscores (__) before the method name convention in Python make this method private, meaning it can only be accessed directly within the class and not from external code.
+
+`self.__inform("Class initialized correctly...")`: This line calls a private method (`__inform`) within the class, potentially to print a message indicating successful class initialization. The 
+double underscores (__) before the method name convention in Python make this method private, meaning it can only be accessed directly within the class and not from external code.
+
 `if self.daemon`: checks if the daemon parameter is set to True. If so, the code block within the if statement executes:
+
 `self.load_soup()`: This line calls another method, load_soup, within the class, to load the content from the URL and parse it using a web scraping library like BeautifulSoup (not shown in this code snippet).
 
 Let's continue with the private and public methods that were mentioned in the previous explanation.
 ![Captura de pantalla (3431)](https://github.com/Areo-17/WS_MercadoLibre/assets/144394013/b485aebf-6fce-4c65-bfa8-a073fb429083)
 
 `def __inform(self, message: str)`: declares a private method named __inform.
+
 `message: str` is a required parameter of type str, representing the message to be printed.
+
 `if self.verbose`: checks if the instance attribute self.verbose is set to True. If True, the code inside the if block executes: `print(message)` prints the provided message to the console.
 
 `def load_soup(self)`: declares a public method named load_soup.
+
 `execution_time = time.time()`: measures the current time using the time.time() function and stores it in the execution_time variable.
+
 `response = requests.get(self.URL)` sends a GET request to the self.URL attribute (an URL) using the requests library and stores the response object in response.
+
 `if response.status_code == 200`: checks if the response status code is 200 (indicating success). If True, the code inside the if block executes:
+
 `html = response.text`: extracts the text content from the response and stores it in html.
+
 `self.soup = BeautifulSoup(html, 'lxml')` parses the html content using the BeautifulSoup library and the lxml parser, and sets the result as the soup attribute of the object.
+
 `else:` (if the status code isn't 200):
+
 `self.soup = None` sets the soup attribute to None to indicate that no soup (parsed content) was created.
+
 `self.__inform(f"Execution time for generating soup: {time.time() - execution_time}")` calls the private  `__inform` method and prints a message to the console (if verbose is True) showing the time taken to generate the soup.
 
 The following step is to start to do the functions for the products characteristics that we are going to extract:
 ![Captura de pantalla (3432)](https://github.com/Areo-17/WS_MercadoLibre/assets/144394013/74293519-fa36-4e61-b580-2b4126b6f353)
 
 `#name function extracts the name of the product.` This is a line comment and does not affect the code's execution. It describes the purpose of the following function.
+
 `def name(self)`: defines a function named name within the class.
+
 `attributes1 = self.soup.find('div', class_= 'ui-pdp-container__col col-2 mr-32')` searches within the soup attribute (a BeautifulSoup object) for the first <div> element with the class names 'ui-pdp-container__col', 'col-2', and 'mr-32'. This element corresponds to the product information section based on the CSS selectors of the HTML code of MercadoLibre. The result is stored in the variable `attributes1`.
+
 `nm = attributes1.find('h1', class_ = 'ui-pdp-title')` searches within the previously found element (attributes1) for the first <h1> element with the class name 'ui-pdp-title'. This the product name element. The result is stored in the variable `nm`.
+
 `if nm`: checks if the nm variable contains a value (meaning the product name element was found). If True, the code block within the if statement executes:
+
 `self.nametxt = nm.get_text()` extracts the text content of the product name element and assigns it to the nametxt attribute of the object.
+
 `else:` (if the product name element wasn't found) then it executes:
+
 `print('The product name was not found.')` which prints an error message to the console.
 
