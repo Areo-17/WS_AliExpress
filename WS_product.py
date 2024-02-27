@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import time
 import json
+import os
 
 class Scrapper:
     
@@ -108,11 +109,11 @@ class Scrapper:
             "description": self.descriptions,
             "images": self.images
         }
-        json_result = json.dumps(all_def, indent = 2)
+        # json_result = json.dumps(all_def, indent = 2)
         end_time = time.time()
         self.time2 = end_time - start_time
         print(f'The execution time of the product attributes is {self.time2} seconds.')
-        return json_result
+        return all_def
     
     #timer function is used just to measure the time of the 'requests' method. It's not useful for the Scrapper itself.
     '''CODERNOTE: I made this function because when I put the time1 and time 2 in a single function it caused problems
@@ -126,15 +127,14 @@ class Scrapper:
 if __name__ == '__main__':
     start_time = time.time()
     
-    #Test for the products' URL extraction
-    link1 = 'https://listado.mercadolibre.com.mx/laptops#D[A:laptops]'
+    # #Test for the products' URL extraction
+    # link1 = 'https://listado.mercadolibre.com.mx/laptops#D[A:laptops]'
     
-    test1 = Scrapper(
-        URL     = link1,
-        verbose = True,
-        daemon  = True,
-    )
-
+    # test1 = Scrapper(
+    #     URL     = link1,
+    #     verbose = True,
+    #     daemon  = True,
+    # )
     
 
     #Test for the products attributes
@@ -145,3 +145,5 @@ if __name__ == '__main__':
         verbose = True,
         daemon  = True,
     )
+    result = Scrapper.all_attributes(test2)
+    print(result)
