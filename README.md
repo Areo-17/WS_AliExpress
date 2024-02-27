@@ -114,6 +114,9 @@ Let's continue with the private and public methods that were mentioned in the pr
 `self.__inform(f"Execution time for generating soup: {time.time() - execution_time}")` calls the private  `__inform` method and prints a message to the console (if verbose is True) showing the time taken to generate the soup.
 
 The following step is to start to do the functions for the products characteristics that we are going to extract:
+
+## Product name
+
 ![Captura de pantalla (3432)](https://github.com/Areo-17/WS_MercadoLibre/assets/144394013/74293519-fa36-4e61-b580-2b4126b6f353)
 
 `#name function extracts the name of the product.` This is a line comment and does not affect the code's execution. It describes the purpose of the following function.
@@ -131,4 +134,39 @@ The following step is to start to do the functions for the products characterist
 `else:` (if the product name element wasn't found) then it executes:
 
 `print('The product name was not found.')` which prints an error message to the console.
+
+## Product price
+
+![Captura de pantalla (3433)](https://github.com/Areo-17/WS_MercadoLibre/assets/144394013/78ef0995-2233-4dee-a4dc-72aef8b7d8c7)
+
+ `def price(self)`: defines a function named price within the class.
+
+`attributes2 = self.soup.find('div', class_= 'ui-pdp-container__col col-2 mr-32')` searches within the soup attribute for the first `<div>` element with the same class names as in the previous code block. This is because the price might also be within that area. The result is stored in the variable `attributes2`.
+
+`pr = attributes2.find('span', class_ = 'andes-money-amount__fraction')` searches within the previously found element (attributes2) for the first `<span>` element with the class name `'andes-money-amount__fraction'`. This class name indicates the price portion. The result is stored in the variable `pr`.
+
+`if pr`: checks if the pr variable contains a value (meaning the price element was found). If True, the code block within the if statement executes:
+
+`self.prices = pr.get_text()` extracts the text content of the price element and assigns it to the prices attribute of the object.
+`else:` (if the price element wasn't found) and the executes the following code line:
+
+`print('The product price was not found.')` which prints an error message to the console.
+
+## Product description
+
+![Captura de pantalla (3437)](https://github.com/Areo-17/WS_MercadoLibre/assets/144394013/0afbb559-f02e-4a13-917b-c8fb74983720)
+
+`#description function extracts the description of the product`: this is a line comment and does not affect to the script execution.
+
+`def description(self)`: defines a function named description within the class (presumably the Scrapper class).
+
+`attributes3 = self.soup.find('p', class_= 'ui-pdp-description__content')` searches within the soup attribute for the first `<p>` element with the class name `'ui-pdp-description__content'`. This class name indicates the product description section. The result is stored in the variable `attributes3`.
+
+`if attributes3:` checks if the attributes3 variable contains a value (meaning the description element was found). If True, the code block within the if statement executes:
+
+`self.descriptions = attributes3.get_text()` extracts the text content of the description element and assigns it to the descriptions attribute of the object.
+
+`else:` (if the description element wasn't found), executes the following code line:
+
+`print('The product description was not found.')` which prints an error message to the console.
 
