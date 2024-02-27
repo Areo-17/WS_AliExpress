@@ -1,20 +1,15 @@
 # Utiliza una imagen base de Python oficial
-FROM python:3.9-slim
+FROM python
 
-# Establece el directorio de trabajo dentro del contenedor
-WORKDIR /WS_app
+WORKDIR /API
 
-# Copia los archivos requerimientos.txt en el contenedor
-COPY requirements.txt .
+# Se copia el directorio local al del contenedor
+COPY . /API/
 
-# Instala las dependencias de Python
-RUN pip install -r requirements.txt
+# Se instalan librerias
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Copia el resto del código de la aplicación Flask en el contenedor
-COPY . .
+EXPOSE 8080
 
-# Expone el puerto en el que se ejecutará la aplicación
-EXPOSE 6000
-
-# Comando para ejecutar la aplicación Flask
-CMD ["flask", "run", "--host=0.0.0.0", "--port=6000"]
+# Se ejecuta la aplicacion de python
+CMD ["python","WS_app.py"]

@@ -24,13 +24,9 @@ def exe_scrappeo():
     images = dictionary["images"]
     description = dictionary["description"]
     
-    return render_template('scrapped_page.html',
-                           name        = name,
-                           price       = price,
-                           images      = images,
-                           description = description,
-                           )
+    return render_template('scrapped_page.html',name=name,price=price,images=images,description=description,)
 
 
 if __name__ == '__main__':
-    app.run(debug=True)  # Inicia el servidor en modo de depuración
+    print("Fakin shit, esta jalando... \n\n\n")
+    app.run(debug=True, port=8080)
