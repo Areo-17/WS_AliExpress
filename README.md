@@ -331,7 +331,7 @@ When te Docker app has already initialized, open your Git Bash, navigate to the 
 
 
 ### Testing the app's APIs on Postman
-
+Now, the docker is up! 
 
 
 
