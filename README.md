@@ -23,11 +23,12 @@ The purpose of creating a virtual environment is to work under specific librarie
 ### Activating and deactivating the virtual environment
 To work propperly in our project we have to activate the virtual environment. To achieve this, write the command `venv\Scripts\activate` on the terminal and press the enter button. Make sure that you are in the path in which the virtual environment was created.
 ![Captura de pantalla (3423)](https://github.com/Areo-17/WS_MercadoLibre/assets/144394013/49cea558-b4a7-4f37-8d48-7e56e3967d9d)
-![image](https://github.com/Areo-17/WS_MercadoLibre/assets/144394013/7f3f4d1c-3406-4f46-8cb0-5ebb5fc623e8)
+![Captura de pantalla (3426)](https://github.com/Areo-17/WS_MercadoLibre/assets/144394013/b75aa288-ac54-4d20-9b16-331a703c2db2)
 If `(venv)` shows up to the left of your path in the terminal the virtual environment has been activated successfully. You have to keep it activated until you close the file.
 
 To deactivate the virtual environment, write the command `venv\Scripts\deactivate` on the terminal and press the enter button. You should do this everytime you are going to stop working on your code.
 ![Captura de pantalla (3425)](https://github.com/Areo-17/WS_MercadoLibre/assets/144394013/96ce4d73-2880-4759-a766-68912e2e11b9)
+
 If `(venv)` dissapears from left of your path in the terminal, then the virtual environment has been deactivated successfully.
 
 ## Importing libraries
