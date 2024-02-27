@@ -257,6 +257,13 @@ To run the file, write the command `venv\Product_scrapper.py` just as the follow
 
 Congrats! You have scrapped a product. An example of the result would be the following one:
 
+### Scrapper requirements
+
+To continue with the project, let's see the requirements of our scrapper. Write the comand `pip3 freeze > requirements.txt` on your active virtual environment.
+
+
+It will create a .txt file with the requirements.
+
 ![WhatsApp Image 2024-02-27 at 9 10 36 AM](https://github.com/Areo-17/WS_MercadoLibre/assets/144394013/73caae3a-db9f-4726-8fc4-4a8e45f2595b)
 
 
