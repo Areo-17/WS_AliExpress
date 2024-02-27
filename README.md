@@ -251,4 +251,7 @@ The constructor arguments are:
 
 To run the file, write the command `venv\Product_scrapper.py` just as the following image. Note: You should be in the virtual environment.
 
+![Captura de pantalla (3443)](https://github.com/Areo-17/WS_MercadoLibre/assets/144394013/1ff7dfd8-348a-4750-a9de-68221ec64745)
+
+
 
