@@ -8,7 +8,9 @@ The main objective of our web scrapper is to offer a web app that allows the use
 The application will be developed on Python language, for this, please install [Visual Studio Code](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiF1fa1uMqEAxVLIEQIHTcjBNEQFnoECAwQAQ&url=https%3A%2F%2Fcode.visualstudio.com%2F&usg=AOvVaw15O90sm1ios8AUpw56hCml&opi=89978449)
 
 ## Cloning the repository
-To clone the GitHub repository, open Git Bash and write the command `git clone `
+To clone the GitHub repository, open Git Bash, choose the path of your preference and write the command `git clone git@github.com:Areo-17/WS_MercadoLibre.git`.
+
+# Web scrapper scripts
 
 ## Adapting the work environment
 First of all, create the folder in which you will be working the project, you have to create this from the file explorer of your OS. After this, open Visual Studio Code and choose the created folder.
