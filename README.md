@@ -7,6 +7,9 @@ The main objective of our web scrapper is to offer a web app that allows the use
 ## Where will the scrapper be developed?
 The application will be developed on Python language, for this, please install [Visual Studio Code](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiF1fa1uMqEAxVLIEQIHTcjBNEQFnoECAwQAQ&url=https%3A%2F%2Fcode.visualstudio.com%2F&usg=AOvVaw15O90sm1ios8AUpw56hCml&opi=89978449)
 
+## Cloning the repository
+To clone the GitHub repository, open Git Bash and write the command `git clone `
+
 ## Adapting the work environment
 First of all, create the folder in which you will be working the project, you have to create this from the file explorer of your OS. After this, open Visual Studio Code and choose the created folder.
 
@@ -271,7 +274,12 @@ It will create a .txt file with the requirements.
 
 ## Scrapper deployment
 
+A deployment is the process of moving software from a development environment to a production environment. In other words, it is the process of making your code accessible to end users.
 
+For this stage of the project, we need to install two important tools: [Docker](https://www.docker.com/get-started/) and [Postman](https://www.postman.com/downloads/).
+Once we have downloaded and installed them, let's leave them for while and continue on Visual Studio Code.
+
+Create a new folder named "WS_deployment". This folder has to be inside the "WS_MercadoLibre" folder, but outside the venv folder. You have to create it from your file explorer, such as you did in the WS_MercadoLibre one. Inside "WS_deployment" add a duplicate of the *"Product_scrapper.py"* and *"requirements.txt"* files. To achieve this, rigth click on each one of the files and select the option *"Copy"*
 
 
 
