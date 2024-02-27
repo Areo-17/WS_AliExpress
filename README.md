@@ -170,3 +170,68 @@ The following step is to start to do the functions for the products characterist
 
 `print('The product description was not found.')` which prints an error message to the console.
 
+## Product images
+
+![Captura de pantalla (3438)](https://github.com/Areo-17/WS_MercadoLibre/assets/144394013/54dcd3ea-de88-4087-a0ef-a014d99fd224)
+
+`#image function extracts all the URLs of the images of the product`. This is a comment line and describes the function's purpose and does not affect to the script execution.
+
+`def image(self)`: defines a function named image within the class.
+
+`img_tags = self.soup.select('div[class*="ui-pdp-gallery"] span[class*="ui-pdp-gallery"] figure[class*="ui-pdp-gallery"] img')` uses the select method on the soup attribute. This method allows selecting elements based on a CSS selector. Here, it targets:
+`<div>` elements with class names containing "ui-pdp-gallery".
+
+Within those `<div>`, it searches for `span` and figure elements also containing "ui-pdp-gallery"
+Finally, it selects the img elements within these nested elements
+
+The results are stored in the variable `img_tags`.
+
+`self.images = []` creates an empty list named images as an attribute of the object. This list will store the image URLs.
+
+`for im in img_tags`: iterates through each element in the img_tags list (which contains the image elements). 
+
+For each element (im):
+`img = im.get('data-zoom')` extracts the value of the attribute named "data-zoom" from the current image element (im). This attribute contains the URL of the image.
+`self.images.append(img)` appends the extracted image URL to the images list.
+
+## Gathering all the attributes of the product
+
+![Captura de pantalla (3439)](https://github.com/Areo-17/WS_MercadoLibre/assets/144394013/5efd3cbd-1415-4f8a-911a-1152d48da963)
+
+`#all_attributes function recieves all the extracted characteristics of the product and prints them`. This is a comment line and describes the function's purpose and does not affect to the script execution.
+
+`def all_attributes(self)`: defines a function named all_attributes within the class.
+
+`start_time = time.time()` measures the current time and stores it in `start_time`. This is used later to calculate the execution time of the function.
+
+`self.name()` calls the previously defined `name` function to extract the product name.
+
+`self.price()` calls the previously defined `price` function to extract the product price.
+
+`self.description()` calls the previously `defined` description function to extract the product description.
+
+`self.image()` calls the previously defined `image` function to extract the product image URLs.
+
+`all_def = { ... }` creates a dictionary named all_def. This dictionary will hold the extracted product characteristics as key-value pairs.
+The keys are strings: "name", "price", "description", and "images".
+The values are retrieved from the object attributes: `self.nametxt`, `self.prices`, `self.descriptions`, and `self.images`, which are populated by the called extractor functions.
+
+`json_result = json.dumps(all_def, indent = 2)` uses the `json.dumps` function to convert the dictionary `all_def` into a JSON string. `indent = 2` is an optional argument that adds indentation for better readability.
+
+`end_time = time.time()` measures the current time and stores it in `end_time`.
+
+`self.time2 = end_time - start_time` calculates the difference between the start and end times, representing the execution time, and stores it in `self.time2`.
+
+`print(f'The execution time of the product attributes is {self.time2} seconds.')` prints a formatted message displaying the calculated execution time in seconds.
+
+`return json_result` returns the generated JSON string containing the product information.
+
+## Testing the script
+
+Now it's time to test our scrapper and we can do it from the same file.
+
+
+
+`if __name__ == '__main__':` checks if the current code is being executed as the main script (not imported as a module). This ensures the testing code only runs when the script is directly executed.
+
+
