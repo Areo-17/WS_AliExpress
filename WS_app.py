@@ -28,5 +28,4 @@ def exe_scrappeo():
 
 
 if __name__ == '__main__':
-    print("Fakin shit, esta jalando... \n\n\n")
-    app.run(debug=True, port=8080)
+    app.run(debug=True)

@@ -1,15 +1,15 @@
 # Utiliza una imagen base de Python oficial
-FROM python
+FROM python:3.12
 
 WORKDIR /API
 
 # Se copia el directorio local al del contenedor
-COPY . /API/
+COPY . .
 
 # Se instalan librerias
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements2.txt
 
-EXPOSE 8080
+EXPOSE 5000
 
 # Se ejecuta la aplicacion de python
 CMD ["python","WS_app.py"]
