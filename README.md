@@ -8,7 +8,9 @@ The main objective of our web scrapper is to offer a web app that allows the use
 The application will be developed on Python language, for this, please install [Visual Studio Code](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiF1fa1uMqEAxVLIEQIHTcjBNEQFnoECAwQAQ&url=https%3A%2F%2Fcode.visualstudio.com%2F&usg=AOvVaw15O90sm1ios8AUpw56hCml&opi=89978449)
 
 ## Cloning the repository
-To clone the GitHub repository, open Git Bash and write the command `git clone `
+To clone the GitHub repository, open Git Bash, choose the path of your preference and write the command `git clone git@github.com:Areo-17/WS_MercadoLibre.git`.
+
+# Web scrapper development
 
 ## Adapting the work environment
 First of all, create the folder in which you will be working the project, you have to create this from the file explorer of your OS. After this, open Visual Studio Code and choose the created folder.
@@ -279,8 +281,61 @@ A deployment is the process of moving software from a development environment to
 For this stage of the project, we need to install two important tools: [Docker](https://www.docker.com/get-started/) and [Postman](https://www.postman.com/downloads/).
 Once we have downloaded and installed them, let's leave them for while and continue on Visual Studio Code.
 
-Create a new folder named "WS_deployment". This folder has to be inside the "WS_MercadoLibre" folder, but outside the venv folder. You have to create it from your file explorer, such as you did in the WS_MercadoLibre one. Inside "WS_deployment" add a duplicate of the *"Product_scrapper.py"* and *"requirements.txt"* files. To achieve this, rigth click on each one of the files and select the option *"Copy"*
+Create a new folder named "WS_deployment". This folder has to be inside the "WS_MercadoLibre" folder, but outside the venv folder. You have to create it from your file explorer, such as you did in the WS_MercadoLibre one. Inside "WS_deployment" add a duplicate of the *"Product_scrapper.py"* and *"requirements.txt"* files. To achieve this, right click on each one of the files and select the option *"Copy"*. Then, right click on the *"WS_deployment" folder and select the option *"Paste"*.
+After that, create 3 files. The first one will be named *"WS_app.py"*, the second one *"Dockerfile"* and the third one *"docker-compose.yml"*. Your folder should look like this. To create a file, right click on the *"WS_deployment"* folder and select the option *"New File..."*.
 
+### Creating a docker container
+
+The *"Dockerfile"* file defines a recipe for building a Docker image that contains your Flask application and its dependencies. Fill it as the following image:
+
+![Captura de pantalla (3448)](https://github.com/Areo-17/WS_MercadoLibre/assets/144394013/c92364fa-33ea-4aff-89e5-0bd7855f8875)
+
+`COPY requirements.txt .` copies the requirements.txt file, which lists the Python dependencies needed for your application, from the host machine (your local system) to the working directory of the Docker image.
+
+`RUN pip install -r requirements.txt` instructs the Docker image to run the pip command to install all the Python packages listed in the copied requirements.txt file. This ensures that the necessary libraries are available within the container environment.
+
+`COPY . .` copies all files and directories from the current directory on the host machine (excluding the already copied requirements.txt) to the working directory of the Docker image. This essentially copies your entire application codebase into the container.
+
+`EXPOSE 6000` exposes port 6000 inside the container. This allows external processes or other containers to access the application running on that port within the container.
+
+`CMD ["flask", "run", "--host=0.0.0.0", "--port=6000"]`defines the default command to be executed when the container starts. The arguments of this command are:
+Runs the `"flask"` command.
+Uses the `"run"` subcommand to start the Flask development server.
+Specifies `"--host=0.0.0.0"` to make the application accessible from any machine on the network (not just the host machine).
+Sets `"--port=6000"` to run the application on the same port that was exposed earlier (port 6000).
+
+The *"docker-compose.yml"* file  defines how to run the Flask application as a service. Fill it as the following image:
+
+![Captura de pantalla (3449)](https://github.com/Areo-17/WS_MercadoLibre/assets/144394013/8cae0279-f610-4d5c-902e-1faa58f29b2c)
+
+`version: '3.8'` specifies the Docker Compose file format version.
+
+`services:` defines the section for defining services within the composition.
+
+`flask-app:` creates a service named flask-app. This service will run the Flask application.
+
+`build: .` instructs Docker Compose to build the Docker image for this service. The image will be built from the current directory (.) using the Dockerfile (if present) also in the current directory.
+
+`ports:` defines how to map ports between the container and the host machine. `- "6000:6000"` maps port 6000 on the host machine (your local system) to port 6000 inside the container. This means any requests sent to port 6000 on the host will be forwarded to the application running on port 6000 within the container.
+
+`volumes:` defines how to share data between the host machine and the container.  `- .:/WS_app` mounts the current directory (.) on the host machine to the */WS_app* directory within the container. This allows any changes made to your code files on the host machine to be reflected in the running container without rebuilding the image.
+
+`environment:` defines environment variables to be set within the container. `- FLASK_APP=WS_app.py` sets the environment variable `FLASK_APP` to the value *WS_app.py*. This variable is used by the Flask application to identify the main application script.
+
+Now that we have filled the necessary docker files, let's build the docker!
+
+First, open the *"Docker Desktop"* app, continue without logging in with an account and let the application finish the "Starting the Docker Engine..." process. 
+
+When te Docker app has already initialized, open your Git Bash, navigate to the directory in which you cloned the repository, and go to the folder in which *"WS_deployment"* is. Once you are there, write the command `docker compose up`. The screen should look like this:
+![Captura de pantalla (3450)](https://github.com/Areo-17/WS_MercadoLibre/assets/144394013/84b4cea3-ae3e-4307-8ed0-bbc977ff3362)
+
+Now, the docker is up!
+
+### Testing the app's APIs on Postman 
+
+Open Postman, click on the Workspace button that is on the left top of the window, create a workspace, select the POST mode on the created workspace, put the http link that docker gave you, in this case is `http://127.0.0.1:6000`, and add `/Scrapping`; the example look like this `http://127.0.0.1:6000/Scrapping`. After this, click in the *"Body"* button.
+
+![Captura de pantalla (3452)](https://github.com/Areo-17/WS_MercadoLibre/assets/144394013/e37bea00-b8af-4eb8-9b47-bc5017838a3e)
 
 
 
