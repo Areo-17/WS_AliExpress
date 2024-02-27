@@ -10,7 +10,7 @@ The application will be developed on Python language, for this, please install [
 ## Cloning the repository
 To clone the GitHub repository, open Git Bash, choose the path of your preference and write the command `git clone git@github.com:Areo-17/WS_MercadoLibre.git`.
 
-# Web scrapper scripts
+# Web scrapper development
 
 ## Adapting the work environment
 First of all, create the folder in which you will be working the project, you have to create this from the file explorer of your OS. After this, open Visual Studio Code and choose the created folder.
