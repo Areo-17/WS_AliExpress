@@ -125,7 +125,7 @@ The following step is to start to do the functions for the products characterist
 
 `attributes1 = self.soup.find('div', class_= 'ui-pdp-container__col col-2 mr-32')` searches within the soup attribute, that is a BeautifulSoup object, for the first `<div>` element with the class names `'ui-pdp-container__col'`, `'col-2'`, and `'mr-32'`. This element corresponds to the product information section based on the CSS selectors of the HTML code of MercadoLibre. The result is stored in the variable `attributes1`.
 
-`nm = attributes1.find('h1', class_ = 'ui-pdp-title')` searches within the previously found element (attributes1) for the first <h1> element with the class name `'ui-pdp-title'`. This the product name element. The result is stored in the variable `nm`.
+`nm = attributes1.find('h1', class_ = 'ui-pdp-title')` searches within the previously found element, attributes1, for the first `<h1>` element with the class name `'ui-pdp-title'`. This the product name element. The result is stored in the variable `nm`.
 
 `if nm`: checks if the nm variable contains a value (meaning the product name element was found). If True, the code block within the if statement executes:
 
