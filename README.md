@@ -284,3 +284,6 @@ Once we have downloaded and installed them, let's leave them for while and conti
 Create a new folder named "WS_deployment". This folder has to be inside the "WS_MercadoLibre" folder, but outside the venv folder. You have to create it from your file explorer, such as you did in the WS_MercadoLibre one. Inside "WS_deployment" add a duplicate of the *"Product_scrapper.py"* and *"requirements.txt"* files. To achieve this, right click on each one of the files and select the option *"Copy"*. Then, right click on the *"WS_deployment" folder and select the option *"Paste"*.
 After that, create 3 files. The first one will be named *"WS_app.py"*, the second one *"Dockerfile"* and the third one *"docker-compose.yml"*. Your folder should look like this. To create a file, right click on the *"WS_deployment"* folder and select the option *"New File..."*.
 
+### Creating a docker container
+
+### Testing the app's APIs on Postman
